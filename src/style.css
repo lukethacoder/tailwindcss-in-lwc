@@ -1,0 +1,4 @@
+@import "tailwindcss";
+
+@source "../force-app/main/default/lwc";
+@source "../layouts";

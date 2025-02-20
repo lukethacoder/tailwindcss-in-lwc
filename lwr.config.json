@@ -1,0 +1,48 @@
+{
+  "lwc": {
+    "modules": [
+      { "dir": "$rootDir/force-app/main/default/lwc", "namespace": "c" }
+    ]
+  },
+  "moduleProviders": [
+    [
+      "@lwc-garden/utils/resolvers/apex.ts",
+      {
+        "paths": ["./__mocks__/apex"]
+      }
+    ],
+    "@lwrjs/label-module-provider",
+    "@lwrjs/app-service/moduleProvider",
+    "@lukethacoder/lwrjs-lwc-module-provider",
+    "@lwrjs/npm-module-provider"
+  ],
+  "hooks": ["@lwc-garden/utils/hooks/staticresources.ts"],
+  "routes": [
+    {
+      "id": "app",
+      "path": "/",
+      "rootComponent": "c/app",
+      "layoutTemplate": "./layouts/index.html",
+      "bootstrap": {
+        "syntheticShadow": true
+      }
+    }
+  ],
+  "assets": [
+    {
+      "alias": "staticResourcesDir",
+      "dir": "$rootDir/force-app/main/default/staticresources",
+      "urlPath": "/resource"
+    }
+  ],
+  "globalData": {
+    "garden": {
+      "apex": {
+        "paths": ["./__mocks__/apex"]
+      },
+      "staticresources": {
+        "paths": ["force-app/main/default/staticresources"]
+      }
+    }
+  }
+}
